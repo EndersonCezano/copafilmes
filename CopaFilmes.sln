@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CopaFilmes.API", "CopaFilmes\CopaFilmes.API.csproj", "{E7093C01-FBC2-40B6-99CE-EEC7AA6327DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopaFilmes.Test", "CopaFilmes.Test\CopaFilmes.Test.csproj", "{5B125681-7A02-40CD-B9ED-3D9960B8EAED}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E7093C01-FBC2-40B6-99CE-EEC7AA6327DF} = {E7093C01-FBC2-40B6-99CE-EEC7AA6327DF}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7093C01-FBC2-40B6-99CE-EEC7AA6327DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7093C01-FBC2-40B6-99CE-EEC7AA6327DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7093C01-FBC2-40B6-99CE-EEC7AA6327DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7093C01-FBC2-40B6-99CE-EEC7AA6327DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B125681-7A02-40CD-B9ED-3D9960B8EAED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B125681-7A02-40CD-B9ED-3D9960B8EAED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B125681-7A02-40CD-B9ED-3D9960B8EAED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B125681-7A02-40CD-B9ED-3D9960B8EAED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {449A318D-2E87-4081-9F2A-2F12E6A26D75}
+	EndGlobalSection
+EndGlobal
