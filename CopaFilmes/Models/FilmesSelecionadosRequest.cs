@@ -6,7 +6,7 @@ namespace CopaFilmes.API.Models
 {
     public class FilmesSelecionadosRequest
     {
-        [Required(ErrorMessage = CFResources.ErroModeloFilmesSelecionados)]
+        [Required(ErrorMessage = Resources.ErroModeloFilmesSelecionados)]
         public IEnumerable<string> Selecao { get; set; }
     }
 }

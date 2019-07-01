@@ -20,18 +20,19 @@ namespace CopaFilmes.API
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddHttpClient();
-            services.AddScoped<IConfrontosService, ConfrontosService>();
-            services.AddSingleton<IOriginalListService, OriginalListService>();
+
+            ConfigureProjectServices(services);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
             app.UseMvc();
+        }
+
+        public void ConfigureProjectServices(IServiceCollection services)
+        {
+            services.AddScoped<IConfrontosService, ConfrontosService>();
+            services.AddSingleton<IListaOficialFilmesService, ListaOficialFilmesService>();
         }
     }
 }

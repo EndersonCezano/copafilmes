@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace CopaFilmes.API.Services
 {
-    public interface IConfrontosService: ICFBaseService
+    public interface IConfrontosService: IBaseService
     {
         Task<IEnumerable<Filme>> DefinirClassificacaoFinal(FilmesSelecionadosRequest request);
     }

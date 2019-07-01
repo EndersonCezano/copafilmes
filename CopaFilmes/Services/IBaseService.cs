@@ -3,7 +3,7 @@ using CopaFilmes.API.Utils;
 
 namespace CopaFilmes.API.Services
 {
-    public interface ICFBaseService
+    public interface IBaseService
     {
         IEnumerable<CFError> Errors { get; }
 

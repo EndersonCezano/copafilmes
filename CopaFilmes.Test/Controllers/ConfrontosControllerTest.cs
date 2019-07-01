@@ -7,6 +7,9 @@ using System.Net;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using CopaFilmes.API.Models;
+using CopaFilmes.API.Services;
+using CopaFilmes.Test.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CopaFilmes.Test.Controllers
 {
@@ -15,10 +18,17 @@ namespace CopaFilmes.Test.Controllers
         private readonly TestServer _server;
         private readonly HttpClient _client;
 
+
         public ConfrontosControllerTest()
         {
             _server = new TestServer(new WebHostBuilder()
-               .UseStartup<CopaFilmes.API.Startup>());
+                .UseStartup<CopaFilmes.API.Startup>()
+                .ConfigureTestServices(services =>
+                    {
+                        services.AddSingleton<IListaOficialFilmesService, ListaOficialFilmesServiceMock>();
+                    })
+                );
+
             _client = _server.CreateClient();
         }
 

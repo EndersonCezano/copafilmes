@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using CopaFilmes.API.Filters;
@@ -15,18 +14,20 @@ namespace CopaFilmes.Controllers
     [ApiController]
     public class ConfrontosController : ControllerBase
     {
-        private IOriginalListService _originalListService;
-        private IConfrontosService _confrontoBusiness;
+        private IListaOficialFilmesService _originalListService;
+        private Lazy<IConfrontosService> _lazyConfrontoBusiness;
+        private IConfrontosService _confrontoBusiness => _lazyConfrontoBusiness.Value;
+
         public ConfrontosController(IServiceProvider serviceProvider)
         {
-            _originalListService = serviceProvider.GetRequiredService<IOriginalListService>();
-            _confrontoBusiness = serviceProvider.GetRequiredService<IConfrontosService>();
+            _originalListService = serviceProvider.GetRequiredService<IListaOficialFilmesService>();
+            _lazyConfrontoBusiness = new Lazy<IConfrontosService>(() => serviceProvider.GetRequiredService<IConfrontosService>());
         }
 
         [HttpGet]
         public async Task<IActionResult> Filmes()
         {
-            var filmes = await _originalListService.CarregarListaOriginal();
+            var filmes = await _originalListService.Filmes;
             return SetContentResult(filmes, _originalListService);
         }
 
@@ -34,11 +35,11 @@ namespace CopaFilmes.Controllers
         [ValidateFilmesSelecionadosFilter]
         public async Task<IActionResult> GerarCampeonato([FromBody] FilmesSelecionadosRequest request)
         {
-            var filmes = await _confrontoBusiness.DefinirClassificacaoFinal(request);            
-            return SetContentResult(filmes, _confrontoBusiness);
+            var vencedores = await _confrontoBusiness.DefinirClassificacaoFinal(request);            
+            return SetContentResult(vencedores, _confrontoBusiness);
         }
 
-        private IActionResult SetContentResult(object content, ICFBaseService serviceInstance)
+        private IActionResult SetContentResult(object content, IBaseService serviceInstance)
         {
             return (serviceInstance.HasError()) ? GenerateBadRequestResult(serviceInstance) : GenerateResult(content, HttpStatusCode.OK);
         }
@@ -71,7 +72,7 @@ namespace CopaFilmes.Controllers
         /// </summary>
         /// <param name="serviceInstance"></param>
         /// <returns></returns>
-        private IActionResult GenerateBadRequestResult(ICFBaseService serviceInstance)
+        private IActionResult GenerateBadRequestResult(IBaseService serviceInstance)
         {
             var json = CFDefaultBadRequestError.CreateObjectError(serviceInstance.Errors, HttpContext.TraceIdentifier);
             return GenerateResult(json, HttpStatusCode.BadRequest);

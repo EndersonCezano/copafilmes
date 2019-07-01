@@ -3,8 +3,6 @@ using CopaFilmes.API.Services;
 using CopaFilmes.API.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -19,9 +17,9 @@ namespace CopaFilmes.API.Filters
 
         private class ValidateFilmesSelecionadosFilterImplementation : IAsyncActionFilter
         {
-            private readonly IOriginalListService _authorRepository;
+            private readonly IListaOficialFilmesService _authorRepository;
 
-            public ValidateFilmesSelecionadosFilterImplementation(IOriginalListService authorRepository)
+            public ValidateFilmesSelecionadosFilterImplementation(IListaOficialFilmesService authorRepository)
             {
                 _authorRepository = authorRepository;
             }
@@ -31,16 +29,16 @@ namespace CopaFilmes.API.Filters
                 var request = context.ActionArguments.First().Value as FilmesSelecionadosRequest;
                 if (request?.Selecao?.Count() != 8)
                 {
-                    context.Result = GenerateBadRequestResult(CFResources.ErroModeloFilmesSelecionados, context.HttpContext.TraceIdentifier);
+                    context.Result = GenerateBadRequestResult(Resources.ErroModeloFilmesSelecionados, context.HttpContext.TraceIdentifier);
                     return;
                 }
 
-                var listaOriginal = await _authorRepository.CarregarListaOriginal();
+                var listaOriginal = await _authorRepository.Filmes;
                 var intersecao = request.Selecao.Intersect(listaOriginal.Select(f => f.Id));
 
                 if (intersecao?.Count() != 8)
                 {
-                    context.Result = GenerateBadRequestResult(CFResources.ErroItemNaoExisteFilmesSelecionados, context.HttpContext.TraceIdentifier);
+                    context.Result = GenerateBadRequestResult(Resources.ErroItemNaoExisteFilmesSelecionados, context.HttpContext.TraceIdentifier);
                     return;
                 }
 

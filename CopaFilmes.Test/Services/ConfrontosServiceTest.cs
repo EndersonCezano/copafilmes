@@ -22,7 +22,7 @@ namespace CopaFilmes.Test.Services
             IServiceCollection services = new ServiceCollection();
             services.AddHttpClient();
             services.AddScoped<IConfrontosService, ConfrontosService>();
-            services.AddSingleton<IOriginalListService, OriginalListService>();
+            services.AddSingleton<IListaOficialFilmesService, ListaOficialFilmesServiceMock>();
 
             var serviceProvider = services.BuildServiceProvider();
             _confrontosService = serviceProvider.GetRequiredService<IConfrontosService>();
@@ -54,13 +54,13 @@ namespace CopaFilmes.Test.Services
             Assert.Equal("tt4154756", campeao.Id);
             Assert.Equal("Vingadores: Guerra Infinita", campeao.Titulo);
             Assert.Equal(2018, campeao.Ano);
-            Assert.Equal((float)8.8, campeao.Nota);
+            Assert.Equal(8.8f, campeao.Nota);
 
             var vice = vencedores.Last();
             Assert.Equal("tt3606756", vice.Id);
             Assert.Equal("Os Incríveis 2", vice.Titulo);
             Assert.Equal(2018, vice.Ano);
-            Assert.Equal((float)8.5, vice.Nota);
+            Assert.Equal(8.5f, vice.Nota);
         }
 
         [Fact]
@@ -89,13 +89,13 @@ namespace CopaFilmes.Test.Services
             Assert.Equal("tt0317705", campeao.Id);
             Assert.Equal("Os Incríveis", campeao.Titulo);
             Assert.Equal(2004, campeao.Ano);
-            Assert.Equal((float)8, campeao.Nota);
+            Assert.Equal(8f, campeao.Nota);
 
             var vice = vencedores.Last();
             Assert.Equal("tt6499752", vice.Id);
             Assert.Equal("Upgrade", vice.Titulo);
             Assert.Equal(2018, vice.Ano);
-            Assert.Equal((float)7.8, vice.Nota);
+            Assert.Equal(7.8f, vice.Nota);
         }
 
         [Fact]
@@ -124,13 +124,13 @@ namespace CopaFilmes.Test.Services
             Assert.Equal("tt4154756", campeao.Id);
             Assert.Equal("Vingadores: Guerra Infinita", campeao.Titulo);
             Assert.Equal(2018, campeao.Ano);
-            Assert.Equal((float)8.8, campeao.Nota);
+            Assert.Equal(8.8f, campeao.Nota);
 
             var vice = vencedores.Last();
             Assert.Equal("tt3606756", vice.Id);
             Assert.Equal("Os Incríveis 2", vice.Titulo);
             Assert.Equal(2018, vice.Ano);
-            Assert.Equal((float)8.5, vice.Nota);
+            Assert.Equal(8.5f, vice.Nota);
         }
 
         [Fact]
@@ -159,13 +159,13 @@ namespace CopaFilmes.Test.Services
             Assert.Equal("tt5463162", campeao.Id);
             Assert.Equal("Deadpool 2", campeao.Titulo);
             Assert.Equal(2018, campeao.Ano);
-            Assert.Equal((float)8.1, campeao.Nota);
+            Assert.Equal(8.1f, campeao.Nota);
 
             var vice = vencedores.Last();
             Assert.Equal("tt0317705", vice.Id);
             Assert.Equal("Os Incríveis", vice.Titulo);
             Assert.Equal(2004, vice.Ano);
-            Assert.Equal((float)8, vice.Nota);
+            Assert.Equal(8f, vice.Nota);
         }
 
         [Fact]
@@ -194,13 +194,13 @@ namespace CopaFilmes.Test.Services
             Assert.Equal("tt5463162", campeao.Id);
             Assert.Equal("Deadpool 2", campeao.Titulo);
             Assert.Equal(2018, campeao.Ano);
-            Assert.Equal((float)8.1, campeao.Nota);
+            Assert.Equal(8.1f, campeao.Nota);
 
             var vice = vencedores.Last();
             Assert.Equal("tt7784604", vice.Id);
             Assert.Equal("Hereditário", vice.Titulo);
             Assert.Equal(2018, vice.Ano);
-            Assert.Equal((float)7.8, vice.Nota);
+            Assert.Equal(7.8f, vice.Nota);
         }
 
         [Fact]
@@ -229,13 +229,13 @@ namespace CopaFilmes.Test.Services
             Assert.Equal("tt3606756", campeao.Id);
             Assert.Equal("Os Incríveis 2", campeao.Titulo);
             Assert.Equal(2018, campeao.Ano);
-            Assert.Equal((float)8.5, campeao.Nota);
+            Assert.Equal(8.5f, campeao.Nota);
 
             var vice = vencedores.Last();
             Assert.Equal("tt7784604", vice.Id);
             Assert.Equal("Hereditário", vice.Titulo);
             Assert.Equal(2018, vice.Ano);
-            Assert.Equal((float)7.8, vice.Nota);
+            Assert.Equal(7.8f, vice.Nota);
         }
     }
 }

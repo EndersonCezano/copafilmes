@@ -1,5 +1,4 @@
 ﻿using CopaFilmes.API.Models;
-using CopaFilmes.API.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace CopaFilmes.API.Services
 {
-    public class ConfrontosService : CFBaseService, IConfrontosService
+    public class ConfrontosService : BaseService, IConfrontosService
     {
-        private readonly IOriginalListService _originalListService;
-        public ConfrontosService(IOriginalListService originalListService)
+        private readonly IListaOficialFilmesService _originalListService;
+        public ConfrontosService(IListaOficialFilmesService originalListService)
         {
             _originalListService = originalListService;
         }
 
         public async Task<IEnumerable<Filme>> DefinirClassificacaoFinal(FilmesSelecionadosRequest request)
         {
-            var listaOriginal = await _originalListService.CarregarListaOriginal();
+            var listaOriginal = await _originalListService.Filmes;
 
             var oitoFilmes = listaOriginal.Where(f => request.Selecao.Contains(f.Id)).OrderBy(o => o.Titulo);
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CopaFilmes.API.Services
 {
-    public class CFBaseService : ICFBaseService
+    public class BaseService : IBaseService
     {
         public IEnumerable<CFError> Errors { get; private set; }
 
