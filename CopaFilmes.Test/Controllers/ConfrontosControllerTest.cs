@@ -18,7 +18,6 @@ namespace CopaFilmes.Test.Controllers
         private readonly TestServer _server;
         private readonly HttpClient _client;
 
-
         public ConfrontosControllerTest()
         {
             _server = new TestServer(new WebHostBuilder()
@@ -42,6 +41,13 @@ namespace CopaFilmes.Test.Controllers
             var result = JsonConvert.DeserializeObject<List<Filme>>(body);
 
             Assert.Equal(16, result.Count);
+        }
+
+        [Fact]
+        public async Task DeveRetornarErroSeVerboDiferenteDeGet()
+        {
+            var response = await _client.PostAsync("http://localhost:5000/api/confrontos/filmes", null);
+            Assert.Equal(HttpStatusCode.MethodNotAllowed, response.StatusCode);
         }
     }
 }

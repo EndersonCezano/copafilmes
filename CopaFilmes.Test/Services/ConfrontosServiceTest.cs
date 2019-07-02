@@ -10,6 +10,7 @@ using CopaFilmes.API.Models;
 using Microsoft.Extensions.DependencyInjection;
 using CopaFilmes.API.Services;
 using System.Linq;
+using System;
 
 namespace CopaFilmes.Test.Services
 {
@@ -33,7 +34,7 @@ namespace CopaFilmes.Test.Services
         {
             var request = new FilmesSelecionadosRequest()
             {
-                Selecao = new List<string>(8)
+                Selecao = new List<string>()
                 {
                     "tt3606756", // os incriveis
                     "tt4881806", // jurassic world
@@ -68,7 +69,7 @@ namespace CopaFilmes.Test.Services
         {
             var request = new FilmesSelecionadosRequest()
             {
-                Selecao = new List<string>(8)
+                Selecao = new List<string>()
                 {
                     "tt2854926", // te peguei
                     "tt0317705", // incriveis 1
@@ -103,7 +104,7 @@ namespace CopaFilmes.Test.Services
         {
             var request = new FilmesSelecionadosRequest()
             {
-                Selecao = new List<string>(8)
+                Selecao = new List<string>()
                 {
                     "tt3606756", // incriveis 2
                     "tt5164214", // oito mulheres
@@ -138,7 +139,7 @@ namespace CopaFilmes.Test.Services
         {
             var request = new FilmesSelecionadosRequest()
             {
-                Selecao = new List<string>(8)
+                Selecao = new List<string>()
                 {
                     "tt4881806", // jurassic world
                     "tt7784604", // hereditario
@@ -173,7 +174,7 @@ namespace CopaFilmes.Test.Services
         {
             var request = new FilmesSelecionadosRequest()
             {
-                Selecao = new List<string>(8)
+                Selecao = new List<string>()
                 {
                     "tt5164214", // oito mulheres ==> 6.3 na posição 5
                     "tt7784604", // hereditario
@@ -208,7 +209,7 @@ namespace CopaFilmes.Test.Services
         {
             var request = new FilmesSelecionadosRequest()
             {
-                Selecao = new List<string>(8)
+                Selecao = new List<string>()
                 {
                     "tt3606756", // incriveis 2
                     "tt4881806", // jurassic world
@@ -236,6 +237,85 @@ namespace CopaFilmes.Test.Services
             Assert.Equal("Hereditário", vice.Titulo);
             Assert.Equal(2018, vice.Ano);
             Assert.Equal(7.8f, vice.Nota);
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+        [InlineData(4)]
+        [InlineData(5)]
+        [InlineData(6)]
+        [InlineData(7)]
+        public async Task DefinirClassificacaoFinalDeveGerarExcecaoSeHouverMenosDe8Filmes(int qtde)
+        {
+            var lista8Filmes = new List<string>()
+                {
+                    "tt3606756", // os incriveis
+                    "tt4881806", // jurassic world
+                    "tt5164214", // oito mulheres
+                    "tt7784604", // hereditario
+                    "tt4154756", // vingadores
+                    "tt5463162", // deadpool
+                    "tt3778644", // han solo
+                    "tt3501632"  // thor
+                };
+
+            var request = new FilmesSelecionadosRequest()
+            {
+                Selecao = lista8Filmes.Take(qtde)
+            };
+
+
+            await Assert.ThrowsAsync<ArgumentOutOfRangeException>(() => _confrontosService.DefinirClassificacaoFinal(request));
+        }
+
+        [Theory]
+        [InlineData(9)]
+        [InlineData(10)]
+        [InlineData(11)]
+        [InlineData(12)]
+        [InlineData(13)]
+        [InlineData(14)]
+        [InlineData(15)]
+        [InlineData(16)]
+        public async Task DefinirClassificacaoFinalVaiConsiderar8PrimeirosOrdenadosMesmoQuandoHouverMaisDe8Filmes(int qtde)
+        {
+            var lista16Filmes = new List<string>(16)
+                {
+                    "tt3606756", // incriveis 2
+                    "tt4154756", // vingadores
+                    "tt4881806", // jurassic world
+                    "tt7784604", // hereditario
+                    "tt0317705", // incriveis 1
+                    "tt3799232", // barraca beijo
+                    "tt1365519", // tomb raider
+                    "tt7690670", // superfly
+                    "tt6499752", // upgrade 
+                    "tt5463162", // deadpool
+                    "tt3778644", // han solo
+                    "tt7690670", // superfly
+                    "tt3501632", // thor
+                    "tt2854926", // te peguei
+                    "tt5164214", // oito mulheres
+                    "tt1825683", // pantera negra
+                };
+
+            var request = new FilmesSelecionadosRequest()
+            {
+                Selecao = lista16Filmes.Take(qtde)
+            };
+
+            var vencedores = await _confrontosService.DefinirClassificacaoFinal(request);
+
+            Assert.Equal(2, vencedores.Count());
+
+            var campeao = vencedores.First();
+            Assert.Equal("tt3606756", campeao.Id);
+            Assert.Equal("Os Incríveis 2", campeao.Titulo);
+            Assert.Equal(2018, campeao.Ano);
+            Assert.Equal(8.5f, campeao.Nota);
         }
     }
 }

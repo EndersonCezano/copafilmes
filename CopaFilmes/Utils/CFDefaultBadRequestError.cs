@@ -27,7 +27,7 @@ namespace CopaFilmes.API.Utils
     public static class CFDefaultBadRequestError
     {
 
-        public static JObject CreateObjectError(IEnumerable<CFError> errors, string traceId)
+        public static JObject CreateObjectError(IEnumerable<Error> errors, string traceId)
         {
             return CreateObjectError(errors.ToJsonMode(), traceId);
         }

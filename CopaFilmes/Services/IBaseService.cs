@@ -5,7 +5,7 @@ namespace CopaFilmes.API.Services
 {
     public interface IBaseService
     {
-        IEnumerable<CFError> Errors { get; }
+        IEnumerable<Error> Errors { get; }
 
         void AddError(string message);
         void AddError(string field, string message);

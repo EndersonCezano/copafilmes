@@ -9,7 +9,7 @@ namespace CopaFilmes.API.Services
 {
     public class BaseService : IBaseService
     {
-        public IEnumerable<CFError> Errors { get; private set; }
+        public IEnumerable<Error> Errors { get; private set; }
 
         public void AddError(string message)
         {
@@ -18,7 +18,7 @@ namespace CopaFilmes.API.Services
 
         public void AddError(string field, string message)
         {
-            var err = new CFError
+            var err = new Error
             {
                 Field = field,
                 Message = message
@@ -26,7 +26,7 @@ namespace CopaFilmes.API.Services
 
             if (Errors == null)
             {
-                Errors = new List<CFError> { err };
+                Errors = new List<Error> { err };
             }
             else
             {
@@ -43,7 +43,7 @@ namespace CopaFilmes.API.Services
 
     public static class ListErrorsExtension
     {
-        public static string ToJsonMode(this IEnumerable<CFError> errors)
+        public static string ToJsonMode(this IEnumerable<Error> errors)
         {
             return string.Join(",", errors.Select(err => err.ToJsonMode()).Cast<string>());
         }

@@ -37,7 +37,7 @@ namespace CopaFilmes.Test.Services
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
 
 
-        public IEnumerable<CFError> Errors => null;
+        public IEnumerable<Error> Errors => null;
         public void AddError(string message) { }
         public void AddError(string field, string message) { }
         public bool HasError() { return false; }

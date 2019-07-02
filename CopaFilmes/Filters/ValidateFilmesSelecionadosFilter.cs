@@ -47,7 +47,7 @@ namespace CopaFilmes.API.Filters
 
             private IActionResult GenerateBadRequestResult(string errorMessage, string traceId)
             {
-                var err = new CFError
+                var err = new Error
                 {
                     Field = nameof(FilmesSelecionadosRequest.Selecao),
                     Message = errorMessage
