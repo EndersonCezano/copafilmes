@@ -5,10 +5,12 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CopaFilmes.API", "CopaFilmes\CopaFilmes.API.csproj", "{E7093C01-FBC2-40B6-99CE-EEC7AA6327DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopaFilmes.Test", "CopaFilmes.Test\CopaFilmes.Test.csproj", "{5B125681-7A02-40CD-B9ED-3D9960B8EAED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CopaFilmes.Test", "CopaFilmes.Test\CopaFilmes.Test.csproj", "{5B125681-7A02-40CD-B9ED-3D9960B8EAED}"
 	ProjectSection(ProjectDependencies) = postProject
 		{E7093C01-FBC2-40B6-99CE-EEC7AA6327DF} = {E7093C01-FBC2-40B6-99CE-EEC7AA6327DF}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopaFilmes.WEB", "CopaFilems.WEB\CopaFilmes.WEB.csproj", "{2176BD68-CAC4-4427-9D7F-5B8CCD74B210}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,10 @@ Global
 		{5B125681-7A02-40CD-B9ED-3D9960B8EAED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B125681-7A02-40CD-B9ED-3D9960B8EAED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B125681-7A02-40CD-B9ED-3D9960B8EAED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2176BD68-CAC4-4427-9D7F-5B8CCD74B210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2176BD68-CAC4-4427-9D7F-5B8CCD74B210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2176BD68-CAC4-4427-9D7F-5B8CCD74B210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2176BD68-CAC4-4427-9D7F-5B8CCD74B210}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
