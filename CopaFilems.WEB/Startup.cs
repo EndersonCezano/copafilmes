@@ -28,7 +28,6 @@ namespace CopaFilems.WEB
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseExceptionHandler("/Error");
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 

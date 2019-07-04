@@ -101,3 +101,23 @@
   line-height: 80px;
   padding-left: 15px;
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: darkslategray;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  text-align: center;  
+}
+
+.footer a:link {
+  color: white;
+}
+
+.footer a:visited {
+  color: white;
+}
