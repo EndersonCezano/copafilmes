@@ -14,10 +14,20 @@ namespace CopaFilmes.API
             Configuration = configuration;
         }
 
+        readonly string MyAllowSpecificOrigins = "apenas_para_apresentacao";
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.AllowAnyOrigin();
+                });
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddHttpClient();
 
@@ -26,6 +36,7 @@ namespace CopaFilmes.API
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseMvc();
         }
 

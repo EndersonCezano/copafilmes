@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Filme } from './filme';
+import { Observable } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -9,29 +13,28 @@ import { Filme } from './filme';
   
 export class HomeComponent {
 
-  filmes = [
-    new Filme("tt3606756", "Os Incríveis 2", 2018),
-    new Filme("tt4881806", "Jurassic World: Reino Ameaçado", 2018),
-    new Filme("tt5164214", "Oito Mulheres e um Segredo", 2018),
-    new Filme("tt7784604", "Hereditário", 2018),
-    new Filme("tt4154756", "Vingadores: Guerra Infinita", 2018),
-    new Filme("tt5463162", "Deadpool 2", 2018),
-    new Filme("tt3778644", "Han Solo: Uma História Star Wars", 2018),
-    new Filme("tt3501632", "Thor: Ragnarok", 2017),
-    new Filme("tt2854926", "Te Peguei!", 2018),
-    new Filme("tt0317705", "Os Incríveis", 2004),
-    new Filme("tt3799232", "A Barraca do Beijo", 2018),
-    new Filme("tt1365519", "Tomb Raider: A Origem", 2018),
-    new Filme("tt1825683", "Pantera Negra", 2018),
-    new Filme("tt5834262", "Hotel Artemis", 2018),
-    new Filme("tt7690670", "Superfly", 2018),
-    new Filme("tt6499752", "Upgrade", 2018),
-  ];
-
   private filmesSelecionados = [];
   private nenhumFilme = "Nenhum filme selecionado";
+
   public currentCount = 0;
   public totalFilme = this.nenhumFilme;
+  public filmes: Filme[] = [];
+
+  constructor(private router: Router, http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    var url = baseUrl + 'api/confrontos/filmes';
+
+    http.get<Filme[]>(url).subscribe(
+      result => {
+        this.filmes = result;        
+      },
+      error => {
+        console.error(error);
+        var httpError = error as HttpErrorResponse;
+        alert(httpError.message + '\n\nstatus code  : ' + httpError.status + ' (' + httpError.statusText + ')');
+      }
+    );
+
+  }
 
   // evento do botão Gerar Campeonato
   public executeChampionship() {
@@ -39,7 +42,7 @@ export class HomeComponent {
       alert("É necessário selecionar exatamente 8 filmes para continuar.");
 
     else
-      alert(this.filmesSelecionados)
+      this.router.navigate(['fetch-data']);
   }
 
   // método para obter a cor do texto do contador

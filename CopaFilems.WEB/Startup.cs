@@ -1,4 +1,3 @@
-using CopaFilmes.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,23 +24,11 @@ namespace CopaFilems.WEB
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-
-            services.AddHttpClient();
-
-            ConfigureProjectServices(services);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-            }
-
+            app.UseExceptionHandler("/Error");
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
@@ -61,12 +48,6 @@ namespace CopaFilems.WEB
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
-        }
-
-        public void ConfigureProjectServices(IServiceCollection services)
-        {
-            services.AddScoped<IConfrontosService, ConfrontosService>();
-            services.AddSingleton<IListaOficialFilmesService, ListaOficialFilmesService>();
         }
     }
 }

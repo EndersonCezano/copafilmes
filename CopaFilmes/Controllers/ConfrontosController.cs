@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using CopaFilmes.API.Filters;
 using CopaFilmes.API.Models;
