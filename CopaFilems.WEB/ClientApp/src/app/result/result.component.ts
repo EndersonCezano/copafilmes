@@ -2,7 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Filme } from '../home/filme';
 import { Router } from '@angular/router';
-import { EHOSTUNREACH } from 'constants';
 
 @Component({
   selector: 'app-result',
