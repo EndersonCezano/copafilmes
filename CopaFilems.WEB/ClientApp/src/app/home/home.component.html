@@ -12,11 +12,11 @@
 </div>
 
 
-<!--contador de filmes selecionados e botão gerar campeonato-->
+<!--contador de filmes selecionados e botao gerar campeonato-->
 <div class="container" style="margin-bottom:20px">
   <div class="row">
     <div class="col-lg-9" style="display:flex; align-items: center; padding-left:0px;" [ngStyle]="getColorTotalFilmes()">
-      {{totalFilme}}
+      {{mensagemContadorSelecao}}
     </div>
     <div class="col-lg-3" style="padding-right:0px; text-align:right ">
       <button class="btn btn-primary btn-disable" (click)="executeChampionship()" [disabled]="getDisableState()">
@@ -26,19 +26,21 @@
   </div>
 </div>
 
+<!-- mensagem enquanto está carregando / erro -->
 <div class="container" style="margin-top:50px; text-align:center" *ngIf="(!filmes) || (filmes.length == 0)">
-  <h5>Aguarde enquanto a lista de filmes é carregada...</h5>
+  <h5>{{mensagemCarregando}}</h5>
+  <p>{{mensagemErro}}</p>
 </div>
 
-  <!--loop para gerar todos os blocos de filmes-->
-  <div class="container-fluid div-inline" *ngFor="let f of filmes">
-    <div id="f.id" class="row" style="height:80px" (click)="changeStatus(f.id)">
-      <div class="col-sm-2 d-flex p-2">
-        <input type="checkbox" [checked]="checkItemSelected(f.id)" style="cursor: pointer">
-      </div>
-      <div class="col-sm-10 coluna-titulo-ano-filme-card">
-        <div class="titulo-filme-card">{{f.titulo}}</div>
-        <div class="ano-filme-card">{{f.ano}}</div>
-      </div>
+<!--loop para gerar todos os blocos de filmes-->
+<div id="{{f.id}}" class="container-fluid div-inline" *ngFor="let f of filmes">
+  <div class="row" style="height:80px" (click)="changeStatus(f.id)">
+    <div class="col-sm-2 d-flex p-2">
+      <input type="checkbox" [checked]="checkItemSelected(f.id)" style="cursor: pointer">
+    </div>
+    <div class="col-sm-10 coluna-titulo-ano-filme-card">
+      <div class="titulo-filme-card">{{f.titulo}}</div>
+      <div class="ano-filme-card">{{f.ano}}</div>
     </div>
   </div>
+</div>

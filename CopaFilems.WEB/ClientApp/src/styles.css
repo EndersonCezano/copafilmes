@@ -50,6 +50,16 @@
   cursor: pointer;
 }
 
+.div-row {
+  width: 100%;
+  height: 80px;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  margin-bottom: 1%;
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
 .coluna-titulo-ano-filme-card {
   padding-left:0px;
   padding-right: 3px;
@@ -71,8 +81,23 @@
   text-align: left;
 }
 
-.btn-disable:disabled,button[disabled] {
+.btn-disable:disabled, button[disabled] {
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
+}
+
+.posicao-campeao {
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px;
+  text-align: center;
+  color:white;
+  line-height: 80px;
+}
+
+.titulo-campeao {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  line-height: 80px;
+  padding-left: 15px;
 }

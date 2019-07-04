@@ -1,0 +1,37 @@
+<!--bloco titulo-->
+<div class="card card-modified">
+  <div class="card-body">
+    <div class="first-title">CAMPEONATO DE FILMES</div>
+    <div class="second-title">Resultado final</div>
+    <hr class="line-title">
+    <div class="card-text text-title">
+      Veja o resultado final do Campeonato de filmes.
+    </div>
+  </div>
+</div>
+
+
+<!--botao voltar-->
+<div class="container" style="margin-bottom:20px; padding-left:0px">
+    <button class="btn btn-primary" (click)="goBack()">
+      Novo campeonato
+    </button>
+</div>
+
+<!-- mensagem enquanto está carregando / erro -->
+<div class="container" style="margin-top:50px; text-align:center" *ngIf="(!filmesVencedores) || (filmesVencedores.length == 0)">
+  <h5>{{mensagemCarregando}}</h5>
+  <p>{{mensagemErro}}</p>
+</div>
+
+  <!--loop para gerar os blocos de filmes campeoes-->
+  <div id="{{f.id}}" class="container div-row" *ngFor="let f of filmesVencedores; let i = index">
+    <div class="row" style="height:80px">
+      <div class="col-sm-2" style="background-color:darkslategray">
+        <div class="posicao-campeao">{{i+1}}º</div>
+      </div>
+      <div class="col-sm-10 coluna-titulo-ano-filme-card">
+        <div class="titulo-campeao">{{f.titulo}}</div>
+      </div>
+    </div>
+  </div>
