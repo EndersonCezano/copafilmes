@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CopaFilems.WEB
+namespace CopaFilmes.WEB
 {
     public class Startup
     {
