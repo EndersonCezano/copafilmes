@@ -1,7 +1,5 @@
 ﻿using CopaFilmes.API.Models;
 using CopaFilmes.API.Utils;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;

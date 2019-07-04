@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
 using CopaFilmes.API.Filters;
 using CopaFilmes.API.Models;
@@ -76,7 +74,7 @@ namespace CopaFilmes.Controllers
         /// <returns></returns>
         private IActionResult GenerateBadRequestResult(IBaseService serviceInstance)
         {
-            var json = CFDefaultBadRequestError.CreateObjectError(serviceInstance.Errors, HttpContext.TraceIdentifier);
+            var json = DefaultBadRequestError.CreateObjectError(serviceInstance.Errors, HttpContext.TraceIdentifier);
             return GenerateResult(json, HttpStatusCode.BadRequest);
         }
     }
