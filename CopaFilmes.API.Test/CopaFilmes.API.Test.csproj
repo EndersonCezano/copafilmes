@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CopaFilmes\CopaFilmes.API.csproj" />
+    <ProjectReference Include="..\CopaFilmes.API\CopaFilmes.API.csproj" />
   </ItemGroup>
 
   <ItemGroup>

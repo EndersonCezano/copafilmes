@@ -1,14 +1,10 @@
 ﻿using CopaFilmes.API.Models;
 using CopaFilmes.API.Services;
 using CopaFilmes.API.Utils;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace CopaFilmes.Test.Services
+namespace CopaFilmes.API.Test.Services
 {
     public class ListaOficialFilmesServiceMock : IListaOficialFilmesService
     {

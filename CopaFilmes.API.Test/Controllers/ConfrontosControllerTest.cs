@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using System.Net;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using CopaFilmes.API.Models;
-using CopaFilmes.API.Services;
-using CopaFilmes.Test.Services;
+using CopaFilmes.API.Test.Services;
 using Microsoft.Extensions.DependencyInjection;
+using CopaFilmes.API.Services;
+using CopaFilmes.API.Models;
 
-namespace CopaFilmes.Test.Controllers
+namespace CopaFilmes.API.Test.Controllers
 {
     public class ConfrontosControllerTest
     {

@@ -1,10 +1,5 @@
-using System.Net.Http;
 using Xunit;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.AspNetCore.Hosting;
 using System.Threading.Tasks;
-using System.Net;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 using CopaFilmes.API.Models;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,7 +7,7 @@ using CopaFilmes.API.Services;
 using System.Linq;
 using System;
 
-namespace CopaFilmes.Test.Services
+namespace CopaFilmes.API.Test.Services
 {
     public class ConfrontosServiceTest
     {
