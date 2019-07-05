@@ -25,12 +25,12 @@
 </div>
 
   <!--loop para gerar os blocos de filmes campeoes-->
-  <div id="{{f.id}}" class="container div-row" *ngFor="let f of filmesVencedores; let i = index">
+  <div id="{{f.id}}" class="container div-row-final" *ngFor="let f of filmesVencedores; let i = index">
     <div class="row" style="height:80px">
-      <div class="col-sm-2" style="background-color:darkslategray">
+      <div class="col-sm-2" style="background-color:#578eb9">
         <div class="posicao-campeao">{{i+1}}º</div>
       </div>
-      <div class="col-sm-10 coluna-titulo-ano-filme-card">
+      <div class="col-sm-10 coluna-titulo-ano-filme-card" style="background-color:#7cb0df">
         <div class="titulo-campeao">{{f.titulo}}</div>
       </div>
     </div>
