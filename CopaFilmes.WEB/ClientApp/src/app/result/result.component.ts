@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { Filme } from '../home/filme';
+import { IFilme } from '../../model/ifilme';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class ResultComponent implements OnInit {
 
   private filmesSelecionados: string[] = [];
-  public filmesVencedores: Filme[] = [];
+  public filmesVencedores: IFilme[] = [];
   public mensagemCarregando = "Aguarde enquanto a classificação é gerada pelo servidor...";
   public mensagemErro = "";
 
@@ -39,7 +39,7 @@ export class ResultComponent implements OnInit {
         'Selecao': this.filmesSelecionados
       };
       
-      this.http.post<Filme[]>(url, postData).subscribe(
+      this.http.post<IFilme[]>(url, postData).subscribe(
         result => {
           this.filmesVencedores = result;
         },

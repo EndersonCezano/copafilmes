@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit  } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Filme } from './filme';
+import { IFilme } from '../../model/ifilme';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   public mensagemContadorSelecao = this.nenhumFilme;
   public mensagemCarregando = "Aguarde enquanto a lista de filmes é carregada...";
   public mensagemErro = "";
-  public filmes: Filme[] = [];
+  public filmes: IFilme[] = [];
 
   // construtor do componente, apenas para receber as dependencias por injecao
   constructor(private router: Router, private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
 
     var url = this.baseUrl + 'api/confrontos/filmes';
 
-    this.http.get<Filme[]>(url).subscribe(
+    this.http.get<IFilme[]>(url).subscribe(
       result => {
         this.filmes = result;
       },

@@ -11,6 +11,10 @@ exports.config = {
   capabilities: {
     'browserName': 'chrome'
   },
+  suites: {
+    home: './src/home.e2e-spec.ts',
+    result: './src/result.e2e-spec.ts'
+  },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
