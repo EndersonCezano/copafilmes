@@ -1,0 +1,46 @@
+<!--bloco titulo-->
+<div class="card card-modified">
+  <div class="card-body">
+    <div class="first-title">CAMPEONATO DE FILMES</div>
+    <div class="second-title">Fase de seleção</div>
+    <hr class="line-title">
+    <div class="card-text text-title">
+      Selecione 8 filmes que você deseja que entrem na competição e depois pressione
+      o botão "Gerar meu campeonato" para prosseguir.
+    </div>
+  </div>
+</div>
+
+
+<!--contador de filmes selecionados e botao gerar campeonato-->
+<div class="container" style="margin-bottom:20px">
+  <div class="row">
+    <div class="col-lg-9" style="display:flex; align-items: center; padding-left:0px;" [ngStyle]="getColorTotalFilmes()">
+      {{mensagemContadorSelecao}}
+    </div>
+    <div class="col-lg-3" style="padding-right:0px; text-align:right ">
+      <button class="btn btn-primary btn-disable" (click)="executeChampionship()" [disabled]="getDisableState()">
+        Gerar meu campeonato
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- mensagem enquanto está carregando / erro -->
+<div class="container" style="margin-top:50px; text-align:center" *ngIf="(!filmes) || (filmes.length == 0)">
+  <h5>{{mensagemCarregando}}</h5>
+  <p>{{mensagemErro}}</p>
+</div>
+
+<!--loop para gerar todos os blocos de filmes-->
+<div id="{{f.id}}" class="container-fluid div-inline" *ngFor="let f of filmes">
+  <div class="row" style="height:80px" (click)="changeStatus(f.id)">
+    <div class="col-sm-2 d-flex p-2">
+      <input type="checkbox" [checked]="checkItemSelected(f.id)" style="cursor: pointer">
+    </div>
+    <div class="col-sm-10 coluna-titulo-ano-filme-card">
+      <div class="titulo-filme-card">{{f.titulo}}</div>
+      <div class="ano-filme-card">{{f.ano}}</div>
+    </div>
+  </div>
+</div>

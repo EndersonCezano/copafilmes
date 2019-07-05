@@ -1,0 +1,123 @@
+/* You can add global styles to this file, and also import other style files */
+.first-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.second-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.line-title {
+  height:2px;
+  border:none;
+  background-color:aquamarine;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 10%;
+}
+
+.card-modified {
+  width: 100%;
+  background-color: darkslategray;
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.text-title {
+  text-align: center;
+  margin-bottom: 15px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.div-inline {
+  display: inline-block;
+  width: 24%;
+  height: 80px;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  margin-bottom: 1%;
+  background-color: #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.div-row {
+  width: 100%;
+  height: 80px;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  margin-bottom: 1%;
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.coluna-titulo-ano-filme-card {
+  padding-left:0px;
+  padding-right: 3px;
+  display: grid;
+  height: 100%;
+  align-content: center;
+}
+
+.ano-filme-card {
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  text-align: left;
+}
+
+.titulo-filme-card {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.btn-disable:disabled, button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.posicao-campeao {
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px;
+  text-align: center;
+  color:white;
+  line-height: 80px;
+}
+
+.titulo-campeao {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  line-height: 80px;
+  padding-left: 15px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: darkslategray;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  text-align: center;  
+}
+
+.footer a:link {
+  color: white;
+}
+
+.footer a:visited {
+  color: white;
+}
