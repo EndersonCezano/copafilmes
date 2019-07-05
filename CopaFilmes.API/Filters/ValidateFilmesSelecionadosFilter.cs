@@ -17,11 +17,11 @@ namespace CopaFilmes.API.Filters
 
         private class ValidateFilmesSelecionadosFilterImplementation : IAsyncActionFilter
         {
-            private readonly IListaOficialFilmesService _authorRepository;
+            private readonly IListaOficialFilmesService _listaOficialService;
 
-            public ValidateFilmesSelecionadosFilterImplementation(IListaOficialFilmesService authorRepository)
+            public ValidateFilmesSelecionadosFilterImplementation(IListaOficialFilmesService listaOficialService)
             {
-                _authorRepository = authorRepository;
+                _listaOficialService = listaOficialService;
             }
 
             public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
@@ -33,7 +33,7 @@ namespace CopaFilmes.API.Filters
                     return;
                 }
 
-                var listaOriginal = await _authorRepository.Filmes;
+                var listaOriginal = await _listaOficialService.Filmes;
                 var intersecao = request.Selecao.Intersect(listaOriginal.Select(f => f.Id));
 
                 if (intersecao?.Count() != 8)
@@ -53,7 +53,7 @@ namespace CopaFilmes.API.Filters
                     Message = errorMessage
                 };
 
-                var json = CFDefaultBadRequestError.CreateObjectError(err.ToJsonMode(), traceId);
+                var json = DefaultBadRequestError.CreateObjectError(err.ToJsonMode(), traceId);
 
                 return new JsonResult(json)
                 {

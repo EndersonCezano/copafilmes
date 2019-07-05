@@ -1,9 +1,6 @@
 ﻿using CopaFilmes.API.Services;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CopaFilmes.API.Utils
 {
@@ -24,7 +21,7 @@ namespace CopaFilmes.API.Utils
     /// }
     /// 
     /// </summary>
-    public static class CFDefaultBadRequestError
+    public static class DefaultBadRequestError
     {
 
         public static JObject CreateObjectError(IEnumerable<Error> errors, string traceId)

@@ -1,9 +1,6 @@
-﻿using CopaFilmes.API.Models;
-using CopaFilmes.API.Utils;
-using System;
+﻿using CopaFilmes.API.Utils;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CopaFilmes.API.Services
 {
