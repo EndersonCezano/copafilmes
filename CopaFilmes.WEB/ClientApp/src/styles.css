@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 .first-title {
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 15px;
   text-align: center;
+  color: #7cb0df;
 }
 
 .second-title {
@@ -15,9 +16,9 @@
 }
 
 .line-title {
-  height:2px;
-  border:none;
-  background-color:aquamarine;
+  height: 2px;
+  border: none;
+  background-color: #92cafc;
   margin-top: 15px;
   margin-bottom: 15px;
   width: 10%;
@@ -25,7 +26,7 @@
 
 .card-modified {
   width: 100%;
-  background-color: darkslategray;
+  background-color: #0f5d9b;
   color: white;
   margin-bottom: 20px;
   margin-top: 30px;
@@ -45,7 +46,7 @@
   margin-right: 0.5%;
   margin-left: 0.5%;
   margin-bottom: 1%;
-  background-color: #ccc;
+  background-color: #7cb0df;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -56,8 +57,13 @@
   margin-right: 0.5%;
   margin-left: 0.5%;
   margin-bottom: 1%;
-  background-color: #ccc;
   border-radius: 5px;
+}
+
+.div-row-final {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 1%;
 }
 
 .coluna-titulo-ano-filme-card {
@@ -70,16 +76,28 @@
 
 .ano-filme-card {
   font-family: 'Roboto', sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   text-align: left;
+  color: #031a2e;
 }
 
 .titulo-filme-card {
   font-family: 'Roboto', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   text-align: left;
+  color: #031a2e;
 }
+
+.btn-primary {
+  background-color: #0f5d9b;
+  border-color: #0f5d9b;
+}
+
+  .btn-primary:hover {
+    background-color: #578eb9;
+    border-color: #578eb9;
+  }
 
 .btn-disable:disabled, button[disabled] {
   border: 1px solid #999999;
@@ -100,6 +118,7 @@
   font-size: 24px;
   line-height: 80px;
   padding-left: 15px;
+  color: #031a2e;
 }
 
 .footer {
@@ -107,17 +126,17 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: darkslategray;
-  color: white;
+  background-color: #285d96;
+  color: #b7d8f6;
   font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  text-align: center;  
+  font-size: 14px;
+  text-align: center;
 }
 
-.footer a:link {
-  color: white;
-}
+  .footer a:link {
+    color: #b7d8f6;
+  }
 
-.footer a:visited {
-  color: white;
-}
+  .footer a:visited {
+    color: #b7d8f6;
+  }

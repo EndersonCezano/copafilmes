@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
   // método para obter a cor do texto do contador
   public getColorTotalFilmes() {
     let styles = {
-      'color': (this.filmesSelecionados.length == 8) ? 'blue' : 'red'
+      'color': (this.filmesSelecionados.length == 8) ? '#0f5d9b' : 'black'
     };
     return styles;
   }
