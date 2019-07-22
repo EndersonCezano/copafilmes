@@ -75,7 +75,7 @@ Enfim, consegui executar o e2e de interface contidos na pasta `<projectpath>/Cop
 
 > **Observação importante**
 
-> **Gostaria de ter criado um mock da API para os testes não ter que depender deça, mas por não ter muito conhecimento, não consegui pesquisar a tempo. Portanto, para rodar os testes é necessário levantar a API antes.**
+> **Gostaria de ter criado um mock da API para os testes não ter que depender dessa, mas por não ter muito conhecimento, não consegui pesquisar a tempo. Portanto, para rodar os testes é necessário levantar a API antes.**
 
 * Linha de comando:
 ```
